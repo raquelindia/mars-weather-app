@@ -32,6 +32,7 @@ display: flex;
 gap: 1%;
 margin-left: 4%;
 padding-top: 2%;
+margin-bottom: -1.5%;
 }
 
 .previous-row {
@@ -89,4 +90,9 @@ padding-top: 2%;
     width: 95%;
     padding-bottom: 2%;
     border-radius: 8px;
+}
+
+.gale-crater-header {
+    display: flex;
+    gap: 1%;
 }
