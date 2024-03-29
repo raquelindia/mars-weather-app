@@ -1,0 +1,91 @@
+.text-one {
+    color: white;
+}
+
+.text-two {
+    color: rgb(146, 146, 146);
+}
+
+.hrs {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+hr {
+    border-color: rgb(146, 146, 146);
+}
+
+.previous-container {
+    border-radius: 8px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: rgb(147, 74, 158);
+    width:700px;
+    padding-bottom: 1%;
+
+}
+
+.previous-header {
+margin-left: 4%;
+padding-top: 2%;
+}
+
+.previous-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-right: 4%;
+    padding-left: 4%;
+}
+
+.previous-left {
+    display: flex;
+    width: 60%;
+    gap: 4%;
+}
+
+.previous-right{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
+
+.row-items {
+}
+
+.previous-bar {
+    width: 250px;
+}
+
+.previous-temps {
+    font-size: 130%;
+    width: 10%;
+}
+
+.previous-date {
+    font-size: 110%;
+    font-weight: 500;
+    width:100%;
+}
+
+.previous-atmos {
+    font-size: 130%;
+}
+
+.gale-crater-container {
+    background-color: rgb(147, 74, 158);
+    width: 71%;
+    border-radius: 8px;
+}
+
+.gale-crater-image-div {
+  display: flex;
+  justify-content: center;
+}
+
+.gale-crater-image {
+    height: 65%;
+    width: 95%;
+    padding-bottom: 2%;
+    border-radius: 8px;
+}

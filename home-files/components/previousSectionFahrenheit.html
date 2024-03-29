@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./home-files/css/components-styles.css">
+    </head>
+    <body>
+        <div class="previous-container">
+            <div class="previous-header">
+                <div class="text-two"><h3>Previous 7 days</h3></div>
+
+                </div>
+                <div class="hrs"><hr></div>
+        <div class="previous-content"  ng-repeat="data in weeklyDataFahrenheit">
+            <previous-days-fahrenheit  date="{{ data.date }}" high="{{ data.high }}" low="{{ data.low }}" atmosphere="{{ data.atmosphere }}" ></previous-days-fahrenheit>
+        </div>
+        </div>
+    </body>
+</html>

@@ -5,3 +5,32 @@
 .text-two {
     color: rgb(146, 146, 146);
 }
+
+.previous-files {
+  display: flex;
+  justify-content: center;
+margin-bottom: 5%;
+
+}
+.gale-crater-file {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.planet {
+    font-size: 250%;
+}
+
+.location {
+    font-size: 140%;
+    font-weight: 600;
+}
+
+.atmosphere {
+    font-size: 190%;
+}
+
+.temp {
+    font-size: 180%;
+}

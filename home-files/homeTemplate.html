@@ -4,36 +4,36 @@
 <link rel="stylesheet" href="./home-files/css/template-styles.css">
     </head>
     <body>
-        <div style="background-color: rgb(128, 52, 128)">
-            <div><h1>Mars Weather App</h1></div>
-            <div>{{todaysWeather}}</div>
-            <br>
-            <div>{{solesOneDate}}</div>
+        <div class="flex justify-center">
+   
+            <div class="flex flex-col">
             <div>
-               <div><h2 class="text-one">Mars</h2></div>
-               <div><h3 class="text-one">Gale Crater</h3></div>
-               <div ng-if="celciusOrFahrenheit === 'fahrenheit'" class="flex flex-col">
-                <div class="text-one">{{todaysAtmosphere}}</div>
-                <div class="flex">
-                <div class="text-one"><span>H:</span><span>{{ soleOneHighF }}</span><span> °</span></div>
-                <div class="text-one"><span>L:</span><span>{{ soleOneLowF }}</span><span> °</span></div>
+               <div class="text-one" style="display: flex; justify-content: center; margin-top: 2%;"><h1 class="planet">Mars</h1></div>
+               <div class="text-one" style="display: flex; justify-content: center"><h2 class="location">GALE CRATER</h2></div>
+               <div class="text-one" style="display: flex; justify-content: center"><h3 class="atmosphere">{{soleOneAtmosphere}}</h3></div>
+               <div ng-if="celsiusOrFahrenheit === 'fahrenheit'" class="flex flex-col">
+                <div class="flex" style="display: flex; justify-content: center">
+                <div class="text-one"><span class="temp">H:</span><span class="temp">{{ soleOneHighF }}</span><span class="temp"> °</span></div>
+                <div class="text-one"><span class="temp">L:</span><span class="temp">{{ soleOneLowF }}</span><span class="temp"> °</span></div>
                </div>
             </div>
 
-               <div ng-if="celciusOrFahrenheit === 'celcius'" class="flex">
-                <div class="text-one"><span>H:</span><span>{{ soleOneHighC }}</span><span> °</span></div>
-                <div class="text-one"><span>L:</span><span>{{ soleOneLowC }}</span><span> °</span></div>
+               <div ng-if="celsiusOrFahrenheit === 'celsius'" class="flex" style="display: flex; justify-content: center">
+                <div class="text-one"><span class="temp">H:</span><span class="temp">{{ soleOneHighC }}</span><span class="temp"> °</span></div>
+                <div class="text-one"><span class="temp">L:</span><span class="temp">{{ soleOneLowC }}</span><span class="temp"> °</span></div>
                </div>
 
 
-               <div>
-            <div class="text-one"><button ng-click="fahrenheit()">F</button> <span> | </span><button ng-click="celcius()">C</button></div>
-            <!-- for testing function-->
+               <div class="mb-4">
+            <div class="text-one" style="display: flex; justify-content: center"><button ng-click="fahrenheit()"class="temp">F</button> <span class="temp"> | </span><button ng-click="celsius()" class="temp">C</button></div>
                </div>
+               
+               </div>
+             <div class="previous-files" ng-if="celsiusOrFahrenheit === 'celsius'" ng-include="'./home-files/components/previousSectionCelsius.html'"></div>
+             <div class="previous-files" ng-if="celsiusOrFahrenheit === 'fahrenheit'" ng-include="'./home-files/components/previousSectionFahrenheit.html'"></div>
 
-               //last 7 days
-             <div ng-include="'./home-files/components/previous.html'"></div>
-            </div>
+             <div class="gale-crater-file" ng-include="'./home-files/components/galeCrater.html'"></div>
+         </div>
         </div>
     </body>
 </html>

@@ -5,13 +5,55 @@
     <meta name="viewport" content=""width=device-width, initial-scale="1.0">
     <title>Mars Weather App</title>
     <link rel="stylesheet" href="index-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="script.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white; /* Adjust text color for visibility */
+            text-align: center;
+            padding-top: 50px; /* Example padding */
+        }
+    </style>
     </head>
     <body>
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="galaxy.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div ng-app="marsWeatherApp" ng-controller="appController">
-            <div ng-view></div>
+            <div class="content" ng-view></div>
         </div>
     </body>
     <script>

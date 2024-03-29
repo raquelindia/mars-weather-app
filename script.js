@@ -2,7 +2,7 @@ var app = angular.module('marsWeatherApp', ["ngRoute"]);
 const marsWeatherUrl = 'https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json';
 app.controller('appController', function($scope, $http){
     $http.get(marsWeatherUrl).then(function(response){
-        $scope.celciusOrFahrenheit = 'fahrenheit';
+        $scope.celsiusOrFahrenheit = 'fahrenheit';
         $scope.weatherData = response.data
         $scope.soles = $scope.weatherData.soles;
         $scope.todaysWeather = $scope.soles[0];
@@ -77,7 +77,23 @@ app.controller('appController', function($scope, $http){
         $scope.soleSevenHighF = Math.floor(parseFloat($scope.soleSevenHighC) * 9/5 + 32);
 
         $scope.weeklyDataCelsius = [
-            {date: $scope.soleOneDate, high: $scope.soleOneHighC, low: $scope.soleOneHighC, atmosphere: }
+            {date: $scope.solesOneDate, high: $scope.soleOneHighC, low: $scope.soleOneHighC, atmosphere: $scope.soleOneAtmosphere},
+            {date: $scope.solesTwoDate, high: $scope.soleTwoHighC, low: $scope.soleTwoHighC, atmosphere: $scope.soleTwoAtmosphere},
+            {date: $scope.solesThreeDate, high: $scope.soleThreeHighC, low: $scope.soleThreeHighC, atmosphere: $scope.soleThreeAtmosphere},
+            {date: $scope.solesFourDate, high: $scope.soleFourHighC, low: $scope.soleFourHighC, atmosphere: $scope.soleFourAtmosphere},
+            {date: $scope.solesFiveDate, high: $scope.soleFiveHighC, low: $scope.soleFiveHighC, atmosphere: $scope.soleFiveAtmosphere},
+            {date: $scope.solesSixDate, high: $scope.soleSixHighC, low: $scope.soleSixHighC, atmosphere: $scope.soleSixAtmosphere},
+            {date: $scope.solesSevenDate, high: $scope.soleSevenHighC, low: $scope.soleSevenHighC, atmosphere: $scope.soleSevenAtmosphere},
+        ];
+
+        $scope.weeklyDataFahrenheit = [
+            {date: $scope.solesOneDate, high: $scope.soleOneHighF, low: $scope.soleOneHighF, atmosphere: $scope.soleOneAtmosphere},
+            {date: $scope.solesTwoDate, high: $scope.soleTwoHighF, low: $scope.soleTwoHighF, atmosphere: $scope.soleTwoAtmosphere},
+            {date: $scope.solesThreeDate, high: $scope.soleThreeHighF, low: $scope.soleThreeHighF, atmosphere: $scope.soleThreeAtmosphere},
+            {date: $scope.solesFourDate, high: $scope.soleFourHighF, low: $scope.soleFourHighF, atmosphere: $scope.soleFourAtmosphere},
+            {date: $scope.solesFiveDate, high: $scope.soleFiveHighF, low: $scope.soleFiveHighF, atmosphere: $scope.soleFiveAtmosphere},
+            {date: $scope.solesSixDate, high: $scope.soleSixHighF, low: $scope.soleSixHighF, atmosphere: $scope.soleSixAtmosphere},
+            {date: $scope.solesSevenDate, high: $scope.soleSevenHighF, low: $scope.soleSevenHighF, atmosphere: $scope.soleSevenAtmosphere},
         ];
        
         console.log($scope.weatherData)
@@ -86,22 +102,38 @@ app.controller('appController', function($scope, $http){
     })
 
     $scope.fahrenheit = function () {
-    $scope.celciusOrFahrenheit = 'fahrenheit';
+    $scope.celsiusOrFahrenheit = 'fahrenheit';
     };
 
 
-    $scope.celcius = function () {
-        $scope.celciusOrFahrenheit = 'celcius';
+    $scope.celsius = function () {
+        $scope.celsiusOrFahrenheit = 'celsius';
     };
+
 
 
 
 });
 
-app.directive('previousDaysCelcius', function(){
+app.directive('previousDaysCelsius', function(){
     return {
         restrict: 'E',
-        templateUrl: 'home-files/components/previousCelcius.html',
+        templateUrl: 'home-files/components/previousCelsius.html',
+        scope: {
+            high: '@',
+            low: '@',
+            date: '@',
+            atmosphere: '@'
+        },
+    controller: 'appController'
+    };
+});
+
+
+app.directive('previousDaysFahrenheit', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'home-files/components/previousFahrenheit.html',
         scope: {
             high: '@',
             low: '@',

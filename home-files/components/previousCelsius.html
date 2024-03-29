@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./home-files/css/components-styles.css">
+    </head>
+    <body>
+        <div>
+            <div class="previous-row">
+                <div class="previous-left">
+                <div class="text-one row-items"><p class="previous-date">{{ date  }}</p></div>
+                <div class="text-one row-items"><p class="previous-atmos">{{ atmosphere  }}</p></div>
+                </div>
+                <div class="previous-right">
+                <div class="text-two row-items"><span class="previous-temps">{{ low  }}</span><span>°</span></div>
+                <div class="previous-bar row-items" style="margin-top: 2.5%; border-radius: 4px; height: 5px; background-image: linear-gradient(to right, blue, red);"></div>
+                <div class="text-one row-items"><span class="previous-temps">{{ high }}</span><span>°</span></div>
+                </div>
+            </div>
+            <div class="hrs"><hr></div>
+        </div>
+    </body>
+</html>
