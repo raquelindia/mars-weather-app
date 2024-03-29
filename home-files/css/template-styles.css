@@ -3,13 +3,14 @@
 }
 
 .text-two {
-    color: rgb(146, 146, 146);
+    color: rgb(212, 212, 212);
 }
 
 .previous-files {
   display: flex;
   justify-content: center;
-margin-bottom: 5%;
+  margin-bottom: 5%;
+
 
 }
 .gale-crater-file {

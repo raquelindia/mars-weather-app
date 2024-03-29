@@ -3,12 +3,14 @@
 }
 
 .text-two {
-    color: rgb(146, 146, 146);
+    color: rgb(212, 212, 212);
 }
 
 .hrs {
     margin-top: 2%;
     margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 hr {
@@ -19,13 +21,15 @@ hr {
     border-radius: 8px;
     margin-bottom: 2%;
     margin-top: 2%;
-    background-color: rgb(147, 74, 158);
-    width:700px;
+    background-color: rgba(68, 54, 104, 0.545);
+    width: 90%;
     padding-bottom: 1%;
 
 }
 
 .previous-header {
+display: flex;
+gap: 1%;
 margin-left: 4%;
 padding-top: 2%;
 }
@@ -50,11 +54,8 @@ padding-top: 2%;
     justify-content: space-around;
 }
 
-.row-items {
-}
-
 .previous-bar {
-    width: 250px;
+    width: 50%;
 }
 
 .previous-temps {
@@ -73,8 +74,8 @@ padding-top: 2%;
 }
 
 .gale-crater-container {
-    background-color: rgb(147, 74, 158);
-    width: 71%;
+    background-color: rgba(68, 54, 104, 0.545);
+    width: 90%;
     border-radius: 8px;
 }
 
