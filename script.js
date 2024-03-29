@@ -6,12 +6,18 @@ app.controller('appController', function($scope, $http){
         $scope.weatherData = response.data
         $scope.soles = $scope.weatherData.soles;
         $scope.todaysWeather = $scope.soles[0];
+        
+
         //days of the week
          //todays stuff
          $scope.solesOneDate = $scope.soles[0].terrestrial_date;
          $scope.soleOneAtmosphere = $scope.soles[0].atmo_opacity;
         $scope.soleOneLowC = $scope.soles[0].min_temp;
         $scope.soleOneHighC = $scope.soles[0].max_temp;
+        $scope.soleOneNumber = $scope.todaysWeather.sol;
+        $scope.soleOneUvIndex = $scope.todaysWeather.local_uv_irradiance_index;
+        $scope.soleOneSunrise = $scope.todaysWeather.sunrise;
+        $scope.soleOneSunset = $scope.todaysWeather.sunset;
 
         $scope.soleOneLowF = Math.floor(parseFloat($scope.soleOneLowC) * 9/5 + 32);
         $scope.soleOneHighF = Math.floor(parseFloat($scope.soleOneHighC) * 9/5 + 32);

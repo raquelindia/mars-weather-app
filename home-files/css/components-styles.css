@@ -97,3 +97,68 @@ margin-bottom: -1.5%;
     display: flex;
     gap: 1%;
 }
+
+.uv-index-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(68, 54, 104, 0.332);
+    border-radius: 8px;
+    padding-bottom: 8%;
+    padding-left: 2%;
+    
+}
+
+.uv-index-header {
+    display: flex;
+    padding-top: 4%;
+    margin-left: 4%;
+    gap: 2%;
+
+}
+
+.uv {
+    font-size: 250%;
+}
+
+.uv-bar {
+   width: 95%;
+   margin-bottom: 6%;
+}
+
+.uv-content {
+   padding-left: 4%;
+    padding-right: 4%;
+}
+
+.sunrise-sunset-container {
+    background-color: rgba(68, 54, 104, 0.332);
+    border-radius: 8px;
+    padding-bottom: 2%;
+}
+
+.sunrise-sunset-header {
+    display: flex;
+    gap: 2%;
+    margin-left: 4%;
+    padding-top: 4%;
+}
+
+.sunrise {
+    display: flex;
+    justify-content: start;
+    font-size: 300%;
+    margin-left: 4%;
+}
+
+.sunset {
+    display: flex;
+    justify-content: start;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.sunrise-img {
+    height: 70px;
+    width: 100%;
+    opacity: 0.6;
+}

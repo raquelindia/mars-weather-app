@@ -10,6 +10,7 @@
             <div>
                <div class="text-one" style="display: flex; justify-content: center; margin-top: 4%;"><h1 class="planet">M a r s</h1></div>
                <div class="text-one" style="display: flex; justify-content: center"><h2 class="location">GALE CRATER</h2></div>
+               <div class="text-one"><h3 class="sol"  style="display: flex; justify-content: center">{{"Sol" + " " + soleOneNumber }}</h3></div>
                <div ng-if="celsiusOrFahrenheit === 'fahrenheit'" class="flex flex-col">
                 <div class="flex" style="display: flex; justify-content: center; gap: 2%;">
                 <div class="text-one"><span class="temp">H: </span><span class="temp">{{ soleOneHighF }}</span><span class="temp">°</span></div>
@@ -32,6 +33,11 @@
              <div class="previous-files" ng-if="celsiusOrFahrenheit === 'fahrenheit'" ng-include="'./home-files/components/previousSectionFahrenheit.html'"></div>
 
              <div class="gale-crater-file" ng-include="'./home-files/components/galeCrater.html'"></div>
+
+               <div style="display: flex; justify-content: space-between; margin-left: 5%; margin-right: 5%;">
+             <div class="uv-index-file" ng-include="'./home-files/components/uvIndex.html'"></div>
+             <div class="sunrise-sunset-file" ng-include="'./home-files/components/sunrise-sunset.html'"></div>
+             </div>
          </div>
         </div>
     </body>

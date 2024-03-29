@@ -19,19 +19,34 @@
     margin-bottom: 5%;
 }
 
+.uv-index-file {
+    margin-bottom: 5%;
+    width: 45%;
+}
+
+.sunrise-sunset-file {
+    width: 45%;
+}
+
 .planet {
     font-size: 350%;
+    font-weight: 200;
 }
 
 .location {
     font-size: 140%;
-    font-weight: 600;
+    font-weight: 500;
 }
-
+.sol {
+    font-size: 380%;
+    font-weight:200;
+}
 .atmosphere {
     font-size: 290%;
+    font-weight: 200;
 }
 
 .temp {
     font-size: 320%;
+    font-weight: 200;
 }
