@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link rel="stylesheet" href="./home-files/css/template-styles.css">
+    </head>
+    <body>
+        <div style="background-color: rgb(128, 52, 128)">
+            <div><h1>Mars Weather App</h1></div>
+            <div>{{todaysWeather}}</div>
+            <br>
+            <div>{{solesOneDate}}</div>
+            <div>
+               <div><h2 class="text-one">Mars</h2></div>
+               <div><h3 class="text-one">Gale Crater</h3></div>
+               <div ng-if="celciusOrFahrenheit === 'fahrenheit'" class="flex flex-col">
+                <div class="text-one">{{todaysAtmosphere}}</div>
+                <div class="flex">
+                <div class="text-one"><span>H:</span><span>{{ soleOneHighF }}</span><span> °</span></div>
+                <div class="text-one"><span>L:</span><span>{{ soleOneLowF }}</span><span> °</span></div>
+               </div>
+            </div>
+
+               <div ng-if="celciusOrFahrenheit === 'celcius'" class="flex">
+                <div class="text-one"><span>H:</span><span>{{ soleOneHighC }}</span><span> °</span></div>
+                <div class="text-one"><span>L:</span><span>{{ soleOneLowC }}</span><span> °</span></div>
+               </div>
+
+
+               <div>
+            <div class="text-one"><button ng-click="fahrenheit()">F</button> <span> | </span><button ng-click="celcius()">C</button></div>
+            <!-- for testing function-->
+               </div>
+
+               //last 7 days
+             <div ng-include="'./home-files/components/previous.html'"></div>
+            </div>
+        </div>
+    </body>
+</html>
