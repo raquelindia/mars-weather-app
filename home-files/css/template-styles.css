@@ -9,14 +9,14 @@
 .previous-files {
   display: flex;
   justify-content: center;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
 
 
 }
 .gale-crater-file {
     display: flex;
     justify-content: center;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 .uv-index-file {
