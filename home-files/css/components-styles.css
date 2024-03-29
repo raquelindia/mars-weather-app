@@ -21,7 +21,7 @@ hr {
     border-radius: 8px;
     margin-bottom: 2%;
     margin-top: 2%;
-    background-color: rgba(68, 54, 104, 0.545);
+    background-color: rgba(68, 54, 104, 0.332);
     width: 90%;
     padding-bottom: 1%;
 
@@ -76,7 +76,7 @@ margin-bottom: -1.5%;
 }
 
 .gale-crater-container {
-    background-color: rgba(68, 54, 104, 0.545);
+    background-color: rgba(68, 54, 104, 0.332);
     width: 90%;
     border-radius: 8px;
 }
