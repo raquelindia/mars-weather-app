@@ -12,8 +12,13 @@
                 <div><h1>MARS ROVER PHOTOS</h1></div>
                 </div>
                 <div class="rover-photo-carousel-container">
-                    <img class="rover-image"  alt="Rover Photo" src="{{photosData[roverPhotosIndex].img_src}}"><span class="rover-arrow-button"><button class="text-one" ng-click="toggleRoverPhotos()"><span style="font-size: 300%; font-weight: 100;" class="material-symbols-outlined">arrow_forward_ios</span></button></span></div>
+                   <div class="rover-image-div"><img  class="rover-image" alt="Rover Photo" src="{{photosData[roverPhotosIndex].img_src}}"></div>
+                   <div class="rover-carousel-buttons-container">
+                    <div class="rover-button-div-back"><span class="rover-button-span"><button class="text-one" ng-click="toggleRoverPhotosBack()"><span style="font-size: 180%; font-weight: 400;" class="material-symbols-outlined">arrow_back_ios</span></button></span></div>
+                    <div class="rover-button-div-forward"><span class="rover-button-span"><button class="text-one" ng-click="toggleRoverPhotosForward()"><span style="font-size: 180%; font-weight: 400;" class="material-symbols-outlined">arrow_forward_ios</span></button></span></div>
                 </div>
+                </div>
+             
             </div>
        
         </div>

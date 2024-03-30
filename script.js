@@ -27,8 +27,21 @@ app.controller('appController', function($scope, $http){
       // $scope.getRoverImages();
         //  console.log($scope.roverPhotoDataArray);
 
-         $scope.toggleRoverPhotos = function () {
-            $scope.roverPhotosIndex = $scope.roverPhotosIndex + 1;
+         $scope.toggleRoverPhotosForward = function () {
+            if ($scope.roverPhotosIndex === 100) {
+                $scope.roverPhotosIndex = 0;
+            } else {
+                $scope.roverPhotosIndex = $scope.roverPhotosIndex + 1;
+            }
+            console.log($scope.roverPhotosIndex);
+         };
+
+         $scope.toggleRoverPhotosBack = function () {
+            if ($scope.roverPhotosIndex === 0){
+                $scope.roverPhotosIndex = 100;
+            } else {
+                $scope.roverPhotosIndex = $scope.roverPhotosIndex - 1;
+            }
             console.log($scope.roverPhotosIndex);
          };
 

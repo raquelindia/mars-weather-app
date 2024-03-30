@@ -167,7 +167,7 @@ margin-bottom: -1.5%;
     background-color: rgba(68, 54, 104, 0.332);
     display: flex;
     flex-direction: column;
-    padding-bottom: 2%;
+
 
 }
 
@@ -181,19 +181,44 @@ margin-bottom: -1.5%;
 }
 
 .rover-image {
-    width: 93%;
     height: 700px;
+    width: 100%;
+}
+.rover-image-div {
+    width:100%;
+    z-index: 0;
 }
 
 .rover-photo-carousel-container {
-    display: flex;
-    width: 100%;
+  padding-bottom: 2%;
 }
 
 .rover-arrow-button {
- display: flex;
- background-color: rgba(68, 54, 104, 0.332);
- width: 7%;
- padding-left: 1%;
- padding-right: 1%;
+}
+
+.rover-button-div-forward {
+    width: 8%;
+    background-color: rgba(57, 44, 176, 0.134);
+}
+
+.rover-button-div-back {
+    width: 8%;
+    background-color: rgba(57, 44, 176, 0.134);
+}
+
+.rover-button-span {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  
+}
+
+.rover-carousel-buttons-container {
+    position: absolute; 
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 700px;
+    transform: translateY(-100%); 
 }
