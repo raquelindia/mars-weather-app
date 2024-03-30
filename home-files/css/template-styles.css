@@ -20,14 +20,17 @@
 
 .uv-index-file {
     width: 49%;
+    height: 100%;
 }
 
 .sunrise-sunset-file {
     width: 49%;
+    height: 100%;
 }
 
 .rover-photos-file {
     margin-bottom: 1.5%;
+
 }
 
 .planet {
