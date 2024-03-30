@@ -19,7 +19,6 @@ hr {
 
 .previous-container {
     border-radius: 8px;
-    margin-bottom: 2%;
     margin-top: 2%;
     background-color: rgba(68, 54, 104, 0.332);
     width: 90%;
@@ -110,7 +109,7 @@ margin-bottom: -1.5%;
 
 .uv-index-header {
     display: flex;
-    padding-top: 4%;
+    padding-top: 3%;
     margin-left: 4%;
     gap: 2%;
 
@@ -140,7 +139,7 @@ margin-bottom: -1.5%;
     display: flex;
     gap: 2%;
     margin-left: 4%;
-    padding-top: 4%;
+    padding-top: 3%;
 }
 
 .sunrise {
@@ -161,4 +160,40 @@ margin-bottom: -1.5%;
     height: 70px;
     width: 100%;
     opacity: 0.6;
+}
+
+.rover-photos-container {
+    border-radius: 8px;
+    background-color: rgba(68, 54, 104, 0.332);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2%;
+
+}
+
+.rover-photos-header {
+    color: rgb(212, 212, 212);
+    display: flex;
+    gap: 1%;
+    margin-left: 2%;
+    padding-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+
+.rover-image {
+    width: 93%;
+    height: 700px;
+}
+
+.rover-photo-carousel-container {
+    display: flex;
+    width: 100%;
+}
+
+.rover-arrow-button {
+ display: flex;
+ background-color: rgba(68, 54, 104, 0.332);
+ width: 7%;
+ padding-left: 1%;
+ padding-right: 1%;
 }

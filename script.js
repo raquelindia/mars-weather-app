@@ -1,6 +1,40 @@
 var app = angular.module('marsWeatherApp', ["ngRoute"]);
 const marsWeatherUrl = 'https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json';
+const marsRoverPhotosUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Ap5yqeFMdeb3wMryO5DXEyUZbfOQdSan6AIb7ZfK';
 app.controller('appController', function($scope, $http){
+    $http.get(marsRoverPhotosUrl).then(function(response){
+        $scope.marsRoverPhotosData = response.data;
+       //console.log($scope.marsRoverPhotosData);    
+        $scope.photosData = $scope.marsRoverPhotosData.photos;
+        // console.log($scope.photosData[3].img_src);
+        // console.log($scope.photosData[4].img_src);
+        $scope.roverPhotosLoop = "";
+        $scope.roverPhotosIndex = 0;
+
+        //console.log($scope.firstPhotosData);
+        
+        $scope.roverPhotoDataArray = [];
+        $scope.displayedRoverImage = $scope.roverPhotoDataArray[$scope.roverPhotosIndex];
+        console.log($scope.displayedRoverImage);
+
+        $scope.getRoverImages = function () {
+            for (let i = 0; i < 100; i++){
+               $scope.roverPhotosLoop = $scope.photosData[i].img_src;
+            //    console.log($scope.roverPhotosLoop);
+               $scope.roverPhotoDataArray.push($scope.roverPhotosLoop);
+            }
+        };
+      // $scope.getRoverImages();
+        //  console.log($scope.roverPhotoDataArray);
+
+         $scope.toggleRoverPhotos = function () {
+            $scope.roverPhotosIndex = $scope.roverPhotosIndex + 1;
+            console.log($scope.roverPhotosIndex);
+         };
+
+    }, function(err) {
+        console.log(err)
+    });
     $http.get(marsWeatherUrl).then(function(response){
         $scope.celsiusOrFahrenheit = 'fahrenheit';
         $scope.weatherData = response.data
@@ -149,6 +183,8 @@ app.directive('previousDaysFahrenheit', function(){
     controller: 'appController'
     };
 });
+
+
 
 app.config(function($routeProvider) {
     $routeProvider
