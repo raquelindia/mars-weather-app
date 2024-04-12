@@ -14,13 +14,15 @@
 }
 
 hr {
-    border-color: rgb(146, 146, 146);
+    /* border-color: rgb(146, 146, 146); */
+    border-color: white;
 }
 
 .previous-container {
     border-radius: 8px;
     margin-top: 2%;
-    background-color: rgba(68, 54, 104, 0.332);
+    /* background-color: rgba(68, 54, 104, 0.332); */
+    background-color: rgba(255, 54, 225, 0.100);
     width: 90%;
     padding-bottom: 1%;
 
@@ -75,7 +77,8 @@ margin-bottom: -1.5%;
 }
 
 .gale-crater-container {
-    background-color: rgba(68, 54, 104, 0.332);
+    /* background-color: rgba(68, 54, 104, 0.332); */
+    background-color: rgba(255, 54, 225, 0.100);
     width: 90%;
     border-radius: 8px;
 }
@@ -100,7 +103,8 @@ margin-bottom: -1.5%;
 .uv-index-container {
     display: flex;
     flex-direction: column;
-    background-color: rgba(68, 54, 104, 0.332);
+    /* background-color: rgba(68, 54, 104, 0.332); */
+    background-color: rgba(255, 54, 225, 0.100);
     border-radius: 8px;
     padding-bottom: 8%;
     padding-left: 2%;
@@ -131,7 +135,8 @@ margin-bottom: -1.5%;
 }
 
 .sunrise-sunset-container {
-    background-color: rgba(68, 54, 104, 0.332);
+    /* background-color: rgba(68, 54, 104, 0.332); */
+    background-color: rgba(255, 54, 225, 0.100);
     border-radius: 8px;
     padding-bottom: 2%;
     height: 100%;
@@ -166,7 +171,8 @@ margin-bottom: -1.5%;
 
 .rover-photos-container {
     border-radius: 8px;
-    background-color: rgba(68, 54, 104, 0.332);
+    /* background-color: rgba(68, 54, 104, 0.332); */
+    background-color: rgba(255, 54, 225, 0.100);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -203,12 +209,14 @@ margin-bottom: -1.5%;
 
 .rover-button-div-forward {
     width: 8%;
-    background-color: rgba(57, 44, 176, 0.134);
+    /* background-color: rgba(57, 44, 176, 0.134); */
+    background-color: rgba(255, 54, 225, 0.164);
 }
 
 .rover-button-div-back {
     width: 8%;
-    background-color: rgba(57, 44, 176, 0.134);
+    /* background-color: rgba(57, 44, 176, 0.134); */
+    background-color: rgba(255, 54, 225, 0.164);
 }
 
 .rover-button-span {

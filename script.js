@@ -2,6 +2,8 @@ var app = angular.module('marsWeatherApp', ["ngRoute", "ngCookies"]);
 const marsWeatherUrl = 'https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json';
 const marsRoverPhotosUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Ap5yqeFMdeb3wMryO5DXEyUZbfOQdSan6AIb7ZfK';
 app.controller('appController', function($scope, $http, $cookies){
+    var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     console.log($scope.celsiusOrFahrenheit);
     $http.get(marsRoverPhotosUrl).then(function(response){
         $scope.marsRoverPhotosData = response.data;
@@ -147,7 +149,7 @@ app.controller('appController', function($scope, $http, $cookies){
             {date: $scope.solesSixDate, high: $scope.soleSixHighF, low: $scope.soleSixHighF, atmosphere: $scope.soleSixAtmosphere},
             {date: $scope.solesSevenDate, high: $scope.soleSevenHighF, low: $scope.soleSevenHighF, atmosphere: $scope.soleSevenAtmosphere},
         ];
-
+        
        
     }, function(err) {
         console.log(err)
@@ -165,7 +167,48 @@ app.controller('appController', function($scope, $http, $cookies){
         $scope.saveAppState();
  
     };
+ 
+    $scope.weatherIconConversion = function () {
+        if ($scope.atmosphere === 'Sunny') {
+            $scope.weatherIcon = 'brightness_7';
+            $scope.weatherIconColor = 'yellow';
+        } else {
+            $scope.weatherIcon = $scope.atmosphere;
+        }
+    }; $scope.weatherIconConversion();
+    $scope.formatDate = function(inputDate) {
+        // Split the input date string into year, month, and day
+        var [year, monthStr, dayStr] = inputDate.split('-');
 
+        // Convert month string to month number (subtracting 1 as JavaScript months are 0-indexed)
+        var month = months[parseInt(monthStr, 10) - 1];
+
+        // Convert day string to number
+        var dayOfMonth = parseInt(dayStr, 10);
+
+        // Get the day of the week from the date string
+        var dayOfWeekIndex = new Date(inputDate).getDay(); // Using Date object just to get the day of the week index
+        var dayOfWeek = daysOfWeek[dayOfWeekIndex];
+
+        // Function to add ordinal suffix to day of the month
+        function getOrdinalSuffix(day) {
+            if (day >= 11 && day <= 13) {
+                return 'th';
+            }
+            switch (day % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+            }
+        }
+
+        // Format the date string
+        return `${dayOfWeek} ${month} ${dayOfMonth}${getOrdinalSuffix(dayOfMonth)}`;
+    };
+
+      
+    //   $scope.solesTwoDate = $scope.formatDate($scope.solesTwoDate);
 
     //saving state with cookies
     $scope.saveAppState = function () {
