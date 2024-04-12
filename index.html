@@ -42,13 +42,14 @@
     </style>
     </head>
     <body>
-        <div class="video-container">
+        <!-- <div class="video-container">
             <video autoplay muted loop playsinline>
                 <source src="galaxy.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-        </div>
+        </div> -->
         <div ng-app="marsWeatherApp" ng-controller="appController">
+            <div id="background-file" ng-include="'./galaxyBackgroundCssTemplate.html'"></div>
             <div class="content" ng-view></div>
         </div>
     </body>
