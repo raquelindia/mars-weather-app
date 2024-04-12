@@ -1,7 +1,8 @@
-var app = angular.module('marsWeatherApp', ["ngRoute"]);
+var app = angular.module('marsWeatherApp', ["ngRoute", "ngCookies"]);
 const marsWeatherUrl = 'https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json';
 const marsRoverPhotosUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Ap5yqeFMdeb3wMryO5DXEyUZbfOQdSan6AIb7ZfK';
-app.controller('appController', function($scope, $http){
+app.controller('appController', function($scope, $http, $cookies){
+    console.log($scope.celsiusOrFahrenheit);
     $http.get(marsRoverPhotosUrl).then(function(response){
         $scope.marsRoverPhotosData = response.data;
        //console.log($scope.marsRoverPhotosData);    
@@ -15,7 +16,6 @@ app.controller('appController', function($scope, $http){
         
         $scope.roverPhotoDataArray = [];
         $scope.displayedRoverImage = $scope.roverPhotoDataArray[$scope.roverPhotosIndex];
-        console.log($scope.displayedRoverImage);
 
         $scope.getRoverImages = function () {
             for (let i = 0; i < 100; i++){
@@ -49,7 +49,6 @@ app.controller('appController', function($scope, $http){
         console.log(err)
     });
     $http.get(marsWeatherUrl).then(function(response){
-        $scope.celsiusOrFahrenheit = 'fahrenheit';
         $scope.weatherData = response.data
         $scope.soles = $scope.weatherData.soles;
         $scope.todaysWeather = $scope.soles[0];
@@ -148,22 +147,51 @@ app.controller('appController', function($scope, $http){
             {date: $scope.solesSixDate, high: $scope.soleSixHighF, low: $scope.soleSixHighF, atmosphere: $scope.soleSixAtmosphere},
             {date: $scope.solesSevenDate, high: $scope.soleSevenHighF, low: $scope.soleSevenHighF, atmosphere: $scope.soleSevenAtmosphere},
         ];
+
        
-        console.log($scope.weatherData)
     }, function(err) {
         console.log(err)
     })
 
     $scope.fahrenheit = function () {
     $scope.celsiusOrFahrenheit = 'fahrenheit';
+    $scope.saveAppState();
+
     };
 
 
     $scope.celsius = function () {
         $scope.celsiusOrFahrenheit = 'celsius';
+        $scope.saveAppState();
+ 
     };
 
 
+    //saving state with cookies
+    $scope.saveAppState = function () {
+        $cookies.putObject('appState', {
+            celsiusOrFahrenheit: $scope.celsiusOrFahrenheit
+        });
+    };
+
+    $scope.loadAppState = function () {
+        var savedState = $cookies.getObject('appState');
+        if (savedState) {
+            $scope.celsiusOrFahrenheit = savedState.celsiusOrFahrenheit;
+        };
+    };
+
+    $scope.$watchGroup([
+        'celsiusOrFahrenheit'
+    ], function(newValues, oldValues) {
+        if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
+            $scope.saveAppState();
+        }
+    });
+
+ //call loadAppState whenever controller initializes
+$scope.loadAppState();
+console.log($scope.celsiusOrFahrenheit);
 
 
 });

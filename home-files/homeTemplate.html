@@ -25,12 +25,13 @@
                <div class="text-one" style="display: flex; justify-content: center"><h3 class="atmosphere">{{soleOneAtmosphere}}</h3></div>
 
                <div class="mb-24">
-            <div class="text-one" style="display: flex; justify-content: center"><button ng-click="fahrenheit()"class="temp">F</button> <span class="temp" style="margin-left: 3%; margin-right: 3%;"> | </span><button ng-click="celsius()" class="temp">C</button></div>
+                 <div ng-if="celsiusOrFahrenheit === 'fahrenheit' || celsiusOrFahrenheit == undefined" class="text-one" style="display: flex; justify-content: center"><button ng-click="fahrenheit()"class="temp text-purple-400">F</button> <span class="temp" style="margin-left: 3%; margin-right: 3%;"> | </span><button ng-click="celsius()" class="temp">C</button></div>
+                 <div ng-if="celsiusOrFahrenheit === 'celsius'" class="text-one" style="display: flex; justify-content: center"><button ng-click="fahrenheit()"class="temp">F</button> <span class="temp" style="margin-left: 3%; margin-right: 3%;"> | </span><button ng-click="celsius()" class="temp text-purple-400">C</button></div>
                </div>
                
                </div>
              <div class="previous-files" ng-if="celsiusOrFahrenheit === 'celsius'" ng-include="'./home-files/components/previousSectionCelsius.html'"></div>
-             <div class="previous-files" ng-if="celsiusOrFahrenheit === 'fahrenheit'" ng-include="'./home-files/components/previousSectionFahrenheit.html'"></div>
+             <div class="previous-files" ng-if="celsiusOrFahrenheit === 'fahrenheit' || celsiusOrFahrenheit == undefined" ng-include="'./home-files/components/previousSectionFahrenheit.html'"></div>
 
              <div class="gale-crater-file" ng-include="'./home-files/components/galeCrater.html'"></div>
 
