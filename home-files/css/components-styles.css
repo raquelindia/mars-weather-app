@@ -3,7 +3,8 @@
 }
 
 .text-two {
-    color: rgb(212, 212, 212);
+    /* color: rgb(212, 212, 212); */
+    color: rgb(255, 211, 255);
 }
 
 .hrs {
@@ -15,7 +16,7 @@
 
 hr {
     /* border-color: rgb(146, 146, 146); */
-    border-color: white;
+    border-color: rgb(255, 211, 255);
 }
 
 .previous-container {
@@ -234,4 +235,9 @@ margin-bottom: -1.5%;
     width: 90%;
     height: 700px;
     transform: translateY(-100%); 
+}
+@media (max-width: 767px){
+.row-items {
+
+}
 }

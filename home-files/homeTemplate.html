@@ -8,9 +8,9 @@
    
             <div class="flex flex-col">
             <div>
-               <div class="text-one" style="display: flex; justify-content: center; margin-top: 8%;"><h1 class="planet">M a r s</h1></div>
-               <div class="text-one" style="display: flex; justify-content: center"><h2 class="location">GALE CRATER</h2></div>
-               <div class="text-one"><h3 class="sol"  style="display: flex; justify-content: center">{{"Sol" + " " + soleOneNumber }}</h3></div>
+               <div class="text-one" style="display: flex; justify-content: center; margin-top: 8%;"><h1 class="planet tracking-wider">Mars</h1></div>
+               <div class="text-one" style="display: flex; justify-content: center"><h2 class="location tracking-wider">GALE CRATER</h2></div>
+               <div class="text-one"><h3 class="sol tracking-wider"  style="display: flex; justify-content: center">{{"Sol" + " " + soleOneNumber }}</h3></div>
                <div ng-if="celsiusOrFahrenheit === 'fahrenheit'" class="flex flex-col">
                 <div class="flex" style="display: flex; justify-content: center; gap: 2%;">
                 <div class="text-one"><span class="temp">H: </span><span class="temp">{{ soleOneHighF }}</span><span class="temp">°</span></div>
@@ -22,7 +22,7 @@
                 <div class="text-one"><span class="temp">H:</span><span class="temp">{{ soleOneHighC }}</span><span class="temp"> °</span></div>
                 <div class="text-one"><span class="temp">L:</span><span class="temp">{{ soleOneLowC }}</span><span class="temp"> °</span></div>
                </div>
-               <div class="text-one" style="display: flex; justify-content: center"><h3 class="atmosphere">{{soleOneAtmosphere}}</h3></div>
+               <div class="text-one" style="display: flex; justify-content: center"><h3 class="atmosphere tracking-wider">{{soleOneAtmosphere}}</h3></div>
 
                <div class="mb-24">
                  <div ng-if="celsiusOrFahrenheit === 'fahrenheit' || celsiusOrFahrenheit == undefined" class="text-one" style="display: flex; justify-content: center"><button ng-click="fahrenheit()"class="temp text-pink-200">F</button> <span class="temp" style="margin-left: 3%; margin-right: 3%;"> | </span><button ng-click="celsius()" class="temp">C</button></div>

@@ -52,6 +52,7 @@ app.controller('appController', function($scope, $http, $cookies){
     });
     $http.get(marsWeatherUrl).then(function(response){
         $scope.weatherData = response.data
+        console.log($scope.weatherData);
         $scope.soles = $scope.weatherData.soles;
         $scope.todaysWeather = $scope.soles[0];
         
