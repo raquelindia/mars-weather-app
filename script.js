@@ -2,6 +2,7 @@ var app = angular.module('marsWeatherApp', ["ngRoute", "ngCookies"]);
 const marsWeatherUrl = 'https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json';
 const marsRoverPhotosUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Ap5yqeFMdeb3wMryO5DXEyUZbfOQdSan6AIb7ZfK';
 app.controller('appController', function($scope, $http, $cookies){
+    $scope.celsiusOrFahrenheit = 'fahrenheit';
     var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     console.log($scope.celsiusOrFahrenheit);
