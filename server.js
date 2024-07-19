@@ -16,13 +16,13 @@ app.use(express.static(path.join(__dirname)));
 
 app.get('/api/data', (req, res) => {
     const data = {
-      message: 'Hello from the server!',
-      apiKey: process.env.API_KEY
+        message: 'Hello from the server!',
+        apiKey: process.env.API_KEY
     };
     res.json(data);
-  });
+});
 
 
-  app.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
-  });
+});

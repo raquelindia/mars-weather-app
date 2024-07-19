@@ -6,26 +6,25 @@ app.controller('appController', function ($scope, $http, $cookies) {
     $scope.celsiusOrFahrenheit = 'fahrenheit';
     var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    console.log($scope.celsiusOrFahrenheit);
 
 
     $http.get(apiKeyUrl)
-    .then(function (response) {
-        const apiKey = response.data.apiKey;
-        const marsRoverPhotosUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`;
-        $scope.marsRoverPhotosUrl = marsRoverPhotosUrl;
-        
-        $scope.apiKey = apiKey;
+        .then(function (response) {
+            const apiKey = response.data.apiKey;
+            const marsRoverPhotosUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`;
+            $scope.marsRoverPhotosUrl = marsRoverPhotosUrl;
 
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+            $scope.apiKey = apiKey;
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 
     const marsRoverPhotosUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=' + $scope.apiKey;
-    
+
     $http.get(marsRoverPhotosUrl).then(function (response) {
-        $scope.marsRoverPhotosData = response.data;   
+        $scope.marsRoverPhotosData = response.data;
         $scope.photosData = $scope.marsRoverPhotosData.photos;
         $scope.roverPhotosLoop = "";
         $scope.roverPhotosIndex = 0;
@@ -36,12 +35,9 @@ app.controller('appController', function ($scope, $http, $cookies) {
         $scope.getRoverImages = function () {
             for (let i = 0; i < 100; i++) {
                 $scope.roverPhotosLoop = $scope.photosData[i].img_src;
-                //    console.log($scope.roverPhotosLoop);
                 $scope.roverPhotoDataArray.push($scope.roverPhotosLoop);
             }
         };
-        // $scope.getRoverImages();
-        //  console.log($scope.roverPhotoDataArray);
 
         $scope.toggleRoverPhotosForward = function () {
             if ($scope.roverPhotosIndex === 100) {
@@ -49,7 +45,7 @@ app.controller('appController', function ($scope, $http, $cookies) {
             } else {
                 $scope.roverPhotosIndex = $scope.roverPhotosIndex + 1;
             }
-            console.log($scope.roverPhotosIndex);
+
         };
 
         $scope.toggleRoverPhotosBack = function () {
@@ -58,7 +54,7 @@ app.controller('appController', function ($scope, $http, $cookies) {
             } else {
                 $scope.roverPhotosIndex = $scope.roverPhotosIndex - 1;
             }
-            console.log($scope.roverPhotosIndex);
+
         };
 
     }, function (err) {
@@ -66,7 +62,6 @@ app.controller('appController', function ($scope, $http, $cookies) {
     });
     $http.get(marsWeatherUrl).then(function (response) {
         $scope.weatherData = response.data
-        console.log($scope.weatherData);
         $scope.soles = $scope.weatherData.soles;
         $scope.todaysWeather = $scope.soles[0];
 
@@ -222,8 +217,6 @@ app.controller('appController', function ($scope, $http, $cookies) {
         return `${dayOfWeek} ${month} ${dayOfMonth}${getOrdinalSuffix(dayOfMonth)}`;
     };
 
-
-    //   $scope.solesTwoDate = $scope.formatDate($scope.solesTwoDate);
 
     //saving state with cookies
     $scope.saveAppState = function () {

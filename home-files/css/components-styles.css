@@ -3,7 +3,6 @@
 }
 
 .text-two {
-    /* color: rgb(212, 212, 212); */
     color: rgb(255, 211, 255);
 }
 
@@ -15,18 +14,15 @@
 }
 
 hr {
-    /* border-color: rgb(146, 146, 146); */
     border-color: rgb(255, 211, 255);
 }
 
 .previous-container {
     border-radius: 8px;
     margin-top: 2%;
-    /* background-color: rgba(68, 54, 104, 0.332); */
     background-color: rgba(255, 54, 225, 0.100);
     width: 90%;
     padding-bottom: 1%;
-
 }
 
 .previous-header {
@@ -78,7 +74,6 @@ hr {
 }
 
 .gale-crater-container {
-    /* background-color: rgba(68, 54, 104, 0.332); */
     background-color: rgba(255, 54, 225, 0.100);
     width: 90%;
     border-radius: 8px;
@@ -104,13 +99,11 @@ hr {
 .uv-index-container {
     display: flex;
     flex-direction: column;
-    /* background-color: rgba(68, 54, 104, 0.332); */
     background-color: rgba(255, 54, 225, 0.100);
     border-radius: 8px;
     padding-bottom: 8%;
     padding-left: 2%;
     height: 100%;
-
 }
 
 .uv-index-header {
@@ -118,7 +111,6 @@ hr {
     padding-top: 3%;
     margin-left: 4%;
     gap: 2%;
-
 }
 
 .uv {
@@ -136,7 +128,6 @@ hr {
 }
 
 .sunrise-sunset-container {
-    /* background-color: rgba(68, 54, 104, 0.332); */
     background-color: rgba(255, 54, 225, 0.100);
     border-radius: 8px;
     padding-bottom: 2%;
@@ -172,13 +163,10 @@ hr {
 
 .rover-photos-container {
     border-radius: 8px;
-    /* background-color: rgba(68, 54, 104, 0.332); */
     background-color: rgba(255, 54, 225, 0.100);
     display: flex;
     flex-direction: column;
     height: 100%;
-
-
 }
 
 .rover-photos-header {
@@ -203,20 +191,16 @@ hr {
 
 .rover-photo-carousel-container {
     padding-bottom: 2%;
-
 }
 
-.rover-arrow-button {}
 
 .rover-button-div-forward {
     width: 8%;
-    /* background-color: rgba(57, 44, 176, 0.134); */
     background-color: rgba(255, 54, 225, 0.164);
 }
 
 .rover-button-div-back {
     width: 8%;
-    /* background-color: rgba(57, 44, 176, 0.134); */
     background-color: rgba(255, 54, 225, 0.164);
 }
 
