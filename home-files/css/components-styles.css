@@ -30,11 +30,11 @@ hr {
 }
 
 .previous-header {
-display: flex;
-gap: 1%;
-margin-left: 4%;
-padding-top: 2%;
-margin-bottom: -1.5%;
+    display: flex;
+    gap: 1%;
+    margin-left: 4%;
+    padding-top: 2%;
+    margin-bottom: -1.5%;
 }
 
 .previous-row {
@@ -51,7 +51,7 @@ margin-bottom: -1.5%;
     gap: 4%;
 }
 
-.previous-right{
+.previous-right {
     display: flex;
     width: 80%;
     justify-content: space-around;
@@ -70,7 +70,7 @@ margin-bottom: -1.5%;
 .previous-date {
     font-size: 110%;
     font-weight: 500;
-    width:100%;
+    width: 100%;
 }
 
 .previous-atmos {
@@ -85,8 +85,8 @@ margin-bottom: -1.5%;
 }
 
 .gale-crater-image-div {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .gale-crater-image {
@@ -110,7 +110,7 @@ margin-bottom: -1.5%;
     padding-bottom: 8%;
     padding-left: 2%;
     height: 100%;
-    
+
 }
 
 .uv-index-header {
@@ -126,12 +126,12 @@ margin-bottom: -1.5%;
 }
 
 .uv-bar {
-   width: 95%;
-   margin-bottom: 6%;
+    width: 95%;
+    margin-bottom: 6%;
 }
 
 .uv-content {
-   padding-left: 4%;
+    padding-left: 4%;
     padding-right: 4%;
 }
 
@@ -177,7 +177,7 @@ margin-bottom: -1.5%;
     display: flex;
     flex-direction: column;
     height: 100%;
-    
+
 
 }
 
@@ -194,19 +194,19 @@ margin-bottom: -1.5%;
     height: 700px;
     width: 100%;
 }
+
 .rover-image-div {
-    width:100%;
+    width: 100%;
     z-index: 0;
-    
+
 }
 
 .rover-photo-carousel-container {
-  padding-bottom: 2%;
+    padding-bottom: 2%;
 
 }
 
-.rover-arrow-button {
-}
+.rover-arrow-button {}
 
 .rover-button-div-forward {
     width: 8%;
@@ -224,20 +224,19 @@ margin-bottom: -1.5%;
     display: flex;
     justify-content: center;
     height: 100%;
-  
+
 }
 
 .rover-carousel-buttons-container {
-    position: absolute; 
+    position: absolute;
     z-index: 1;
     display: flex;
     justify-content: space-between;
     width: 90%;
     height: 700px;
-    transform: translateY(-100%); 
+    transform: translateY(-100%);
 }
-@media (max-width: 767px){
-.row-items {
 
-}
+@media (max-width: 767px) {
+    .row-items {}
 }

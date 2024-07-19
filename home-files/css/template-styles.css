@@ -7,11 +7,12 @@
 }
 
 .previous-files {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5%;
 
 }
+
 .gale-crater-file {
     display: flex;
     justify-content: center;
@@ -42,10 +43,12 @@
     font-size: 140%;
     font-weight: 500;
 }
+
 .sol {
     font-size: 380%;
-    font-weight:200;
+    font-weight: 200;
 }
+
 .atmosphere {
     font-size: 290%;
     font-weight: 200;
@@ -55,4 +58,3 @@
     font-size: 320%;
     font-weight: 200;
 }
-

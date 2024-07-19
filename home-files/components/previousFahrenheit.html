@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./home-files/css/components-styles.css">
-    </head>
-    <body>
-        <div>
-            <div class="previous-row">
-                <div class="previous-left sm:text-4xl sm:mt-10 sm:mb-10">
-            <div class="text-one row-items mt-3"><p class="previous-date">{{ date  }}</p></div>
-            <div class="text-one row-items sm:ml-8"><p class="previous-atmos"><span ng-style="{'color': weatherIconColor}" class="material-symbols-outlined text-6xl">{{ weatherIcon }}</span></p></div>
+
+<head>
+    <link rel="stylesheet" href="./home-files/css/components-styles.css">
+</head>
+
+<body>
+    <div>
+        <div class="previous-row">
+            <div class="previous-left sm:text-4xl sm:mt-10 sm:mb-10">
+                <div class="text-one row-items mt-3">
+                    <p class="previous-date">{{ date }}</p>
+                </div>
+                <div class="text-one row-items sm:ml-8">
+                    <p class="previous-atmos"><span ng-style="{'color': weatherIconColor}"
+                            class="material-symbols-outlined text-6xl">{{ weatherIcon }}</span></p>
+                </div>
             </div>
 
             <div class="previous-right sm:text-4xl sm:mt-12 sm:mb-8">
-            <div class="text-two row-items"><span class="previous-temps">{{ low  }}</span><span>°</span></div>
-            <div class="previous-bar row-items" style="margin-top: 2.5%; border-radius: 4px; height: 5px; background-image: linear-gradient(to right, white, white, lightpink, lightpink, rgb(255, 1, 179), rgb(255, 1, 179), red);"></div>
-            <div class="text-one row-items"><span class="previous-temps">{{ high  }}</span><span>°</span></div>
+                <div class="text-two row-items"><span class="previous-temps">{{ low }}</span><span>°</span></div>
+                <div class="previous-bar row-items"
+                    style="margin-top: 2.5%; border-radius: 4px; height: 5px; background-image: linear-gradient(to right, white, white, lightpink, lightpink, rgb(255, 1, 179), rgb(255, 1, 179), red);">
+                </div>
+                <div class="text-one row-items"><span class="previous-temps">{{ high }}</span><span>°</span></div>
             </div>
-            </div>
-            <div class="hrs"><hr></div>
-     
         </div>
-    </body>
+        <div class="hrs">
+            <hr>
+        </div>
+
+    </div>
+</body>
+
 </html>

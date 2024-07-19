@@ -1,67 +1,80 @@
 var app = angular.module('marsWeatherApp', ["ngRoute", "ngCookies"]);
+const apiKeyUrl = '/api/data';
 const marsWeatherUrl = 'https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json';
-const marsRoverPhotosUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Ap5yqeFMdeb3wMryO5DXEyUZbfOQdSan6AIb7ZfK';
-app.controller('appController', function($scope, $http, $cookies){
+
+app.controller('appController', function ($scope, $http, $cookies) {
     $scope.celsiusOrFahrenheit = 'fahrenheit';
     var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     console.log($scope.celsiusOrFahrenheit);
-    $http.get(marsRoverPhotosUrl).then(function(response){
-        $scope.marsRoverPhotosData = response.data;
-       //console.log($scope.marsRoverPhotosData);    
+
+
+    $http.get(apiKeyUrl)
+    .then(function (response) {
+        const apiKey = response.data.apiKey;
+        const marsRoverPhotosUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`;
+        $scope.marsRoverPhotosUrl = marsRoverPhotosUrl;
+        
+        $scope.apiKey = apiKey;
+
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
+    const marsRoverPhotosUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=' + $scope.apiKey;
+    
+    $http.get(marsRoverPhotosUrl).then(function (response) {
+        $scope.marsRoverPhotosData = response.data;   
         $scope.photosData = $scope.marsRoverPhotosData.photos;
-        // console.log($scope.photosData[3].img_src);
-        // console.log($scope.photosData[4].img_src);
         $scope.roverPhotosLoop = "";
         $scope.roverPhotosIndex = 0;
 
-        //console.log($scope.firstPhotosData);
-        
         $scope.roverPhotoDataArray = [];
         $scope.displayedRoverImage = $scope.roverPhotoDataArray[$scope.roverPhotosIndex];
 
         $scope.getRoverImages = function () {
-            for (let i = 0; i < 100; i++){
-               $scope.roverPhotosLoop = $scope.photosData[i].img_src;
-            //    console.log($scope.roverPhotosLoop);
-               $scope.roverPhotoDataArray.push($scope.roverPhotosLoop);
+            for (let i = 0; i < 100; i++) {
+                $scope.roverPhotosLoop = $scope.photosData[i].img_src;
+                //    console.log($scope.roverPhotosLoop);
+                $scope.roverPhotoDataArray.push($scope.roverPhotosLoop);
             }
         };
-      // $scope.getRoverImages();
+        // $scope.getRoverImages();
         //  console.log($scope.roverPhotoDataArray);
 
-         $scope.toggleRoverPhotosForward = function () {
+        $scope.toggleRoverPhotosForward = function () {
             if ($scope.roverPhotosIndex === 100) {
                 $scope.roverPhotosIndex = 0;
             } else {
                 $scope.roverPhotosIndex = $scope.roverPhotosIndex + 1;
             }
             console.log($scope.roverPhotosIndex);
-         };
+        };
 
-         $scope.toggleRoverPhotosBack = function () {
-            if ($scope.roverPhotosIndex === 0){
+        $scope.toggleRoverPhotosBack = function () {
+            if ($scope.roverPhotosIndex === 0) {
                 $scope.roverPhotosIndex = 100;
             } else {
                 $scope.roverPhotosIndex = $scope.roverPhotosIndex - 1;
             }
             console.log($scope.roverPhotosIndex);
-         };
+        };
 
-    }, function(err) {
+    }, function (err) {
         console.log(err)
     });
-    $http.get(marsWeatherUrl).then(function(response){
+    $http.get(marsWeatherUrl).then(function (response) {
         $scope.weatherData = response.data
         console.log($scope.weatherData);
         $scope.soles = $scope.weatherData.soles;
         $scope.todaysWeather = $scope.soles[0];
-        
+
 
         //days of the week
-         //todays stuff
-         $scope.solesOneDate = $scope.soles[0].terrestrial_date;
-         $scope.soleOneAtmosphere = $scope.soles[0].atmo_opacity;
+        //todays stuff
+        $scope.solesOneDate = $scope.soles[0].terrestrial_date;
+        $scope.soleOneAtmosphere = $scope.soles[0].atmo_opacity;
         $scope.soleOneLowC = $scope.soles[0].min_temp;
         $scope.soleOneHighC = $scope.soles[0].max_temp;
         $scope.soleOneNumber = $scope.todaysWeather.sol;
@@ -69,8 +82,8 @@ app.controller('appController', function($scope, $http, $cookies){
         $scope.soleOneSunrise = $scope.todaysWeather.sunrise;
         $scope.soleOneSunset = $scope.todaysWeather.sunset;
 
-        $scope.soleOneLowF = Math.floor(parseFloat($scope.soleOneLowC) * 9/5 + 32);
-        $scope.soleOneHighF = Math.floor(parseFloat($scope.soleOneHighC) * 9/5 + 32);
+        $scope.soleOneLowF = Math.floor(parseFloat($scope.soleOneLowC) * 9 / 5 + 32);
+        $scope.soleOneHighF = Math.floor(parseFloat($scope.soleOneHighC) * 9 / 5 + 32);
 
 
         //day 2
@@ -79,8 +92,8 @@ app.controller('appController', function($scope, $http, $cookies){
         $scope.soleTwoLowC = $scope.soles[1].min_temp;
         $scope.soleTwoHighC = $scope.soles[1].max_temp;
 
-        $scope.soleTwoLowF = parseFloat($scope.soleTwoLowC) * 9/5 + 32;
-        $scope.soleTwoHighF = parseFloat($scope.soleTwoHighC) * 9/5 + 32;
+        $scope.soleTwoLowF = parseFloat($scope.soleTwoLowC) * 9 / 5 + 32;
+        $scope.soleTwoHighF = parseFloat($scope.soleTwoHighC) * 9 / 5 + 32;
 
         //day 3
         $scope.solesThreeDate = $scope.soles[2].terrestrial_date;
@@ -89,8 +102,8 @@ app.controller('appController', function($scope, $http, $cookies){
         $scope.soleThreeHighC = $scope.soles[2].max_temp;
 
 
-        $scope.soleThreeLowF = Math.floor(parseFloat($scope.soleThreeLowC) * 9/5 + 32);
-        $scope.soleThreeHighF = Math.floor(parseFloat($scope.soleThreeHighC) * 9/5 + 32);
+        $scope.soleThreeLowF = Math.floor(parseFloat($scope.soleThreeLowC) * 9 / 5 + 32);
+        $scope.soleThreeHighF = Math.floor(parseFloat($scope.soleThreeHighC) * 9 / 5 + 32);
 
         //day 4
         $scope.solesFourDate = $scope.soles[3].terrestrial_date;
@@ -99,8 +112,8 @@ app.controller('appController', function($scope, $http, $cookies){
         $scope.soleFourHighC = $scope.soles[3].max_temp;
 
 
-        $scope.soleFourLowF = Math.floor(parseFloat($scope.soleFourLowC) * 9/5 + 32);
-        $scope.soleFourHighF = Math.floor(parseFloat($scope.soleFourHighC) * 9/5 + 32);
+        $scope.soleFourLowF = Math.floor(parseFloat($scope.soleFourLowC) * 9 / 5 + 32);
+        $scope.soleFourHighF = Math.floor(parseFloat($scope.soleFourHighC) * 9 / 5 + 32);
 
         //day 5
         $scope.solesFiveDate = $scope.soles[4].terrestrial_date;
@@ -109,8 +122,8 @@ app.controller('appController', function($scope, $http, $cookies){
         $scope.soleFiveHighC = $scope.soles[4].max_temp;
 
 
-        $scope.soleFiveLowF = Math.floor(parseFloat($scope.soleFiveLowC) * 9/5 + 32);
-        $scope.soleFiveHighF = Math.floor(parseFloat($scope.soleFiveHighC) * 9/5 + 32);
+        $scope.soleFiveLowF = Math.floor(parseFloat($scope.soleFiveLowC) * 9 / 5 + 32);
+        $scope.soleFiveHighF = Math.floor(parseFloat($scope.soleFiveHighC) * 9 / 5 + 32);
 
         //day 6
         $scope.solesSixDate = $scope.soles[5].terrestrial_date;
@@ -119,8 +132,8 @@ app.controller('appController', function($scope, $http, $cookies){
         $scope.soleSixHighC = $scope.soles[5].max_temp;
 
 
-        $scope.soleSixLowF = Math.floor(parseFloat($scope.soleSixLowC) * 9/5 + 32);
-        $scope.soleSixHighF = Math.floor(parseFloat($scope.soleSixHighC) * 9/5 + 32);
+        $scope.soleSixLowF = Math.floor(parseFloat($scope.soleSixLowC) * 9 / 5 + 32);
+        $scope.soleSixHighF = Math.floor(parseFloat($scope.soleSixHighC) * 9 / 5 + 32);
 
         //day 7
         $scope.solesSevenDate = $scope.soles[6].terrestrial_date;
@@ -129,37 +142,37 @@ app.controller('appController', function($scope, $http, $cookies){
         $scope.soleSevenHighC = $scope.soles[6].max_temp;
 
 
-        $scope.soleSevenLowF = Math.floor(parseFloat($scope.soleSevenLowC) * 9/5 + 32);
-        $scope.soleSevenHighF = Math.floor(parseFloat($scope.soleSevenHighC) * 9/5 + 32);
+        $scope.soleSevenLowF = Math.floor(parseFloat($scope.soleSevenLowC) * 9 / 5 + 32);
+        $scope.soleSevenHighF = Math.floor(parseFloat($scope.soleSevenHighC) * 9 / 5 + 32);
 
         $scope.weeklyDataCelsius = [
-            {date: $scope.solesOneDate, high: $scope.soleOneHighC, low: $scope.soleOneHighC, atmosphere: $scope.soleOneAtmosphere},
-            {date: $scope.solesTwoDate, high: $scope.soleTwoHighC, low: $scope.soleTwoHighC, atmosphere: $scope.soleTwoAtmosphere},
-            {date: $scope.solesThreeDate, high: $scope.soleThreeHighC, low: $scope.soleThreeHighC, atmosphere: $scope.soleThreeAtmosphere},
-            {date: $scope.solesFourDate, high: $scope.soleFourHighC, low: $scope.soleFourHighC, atmosphere: $scope.soleFourAtmosphere},
-            {date: $scope.solesFiveDate, high: $scope.soleFiveHighC, low: $scope.soleFiveHighC, atmosphere: $scope.soleFiveAtmosphere},
-            {date: $scope.solesSixDate, high: $scope.soleSixHighC, low: $scope.soleSixHighC, atmosphere: $scope.soleSixAtmosphere},
-            {date: $scope.solesSevenDate, high: $scope.soleSevenHighC, low: $scope.soleSevenHighC, atmosphere: $scope.soleSevenAtmosphere},
+            { date: $scope.solesOneDate, high: $scope.soleOneHighC, low: $scope.soleOneHighC, atmosphere: $scope.soleOneAtmosphere },
+            { date: $scope.solesTwoDate, high: $scope.soleTwoHighC, low: $scope.soleTwoHighC, atmosphere: $scope.soleTwoAtmosphere },
+            { date: $scope.solesThreeDate, high: $scope.soleThreeHighC, low: $scope.soleThreeHighC, atmosphere: $scope.soleThreeAtmosphere },
+            { date: $scope.solesFourDate, high: $scope.soleFourHighC, low: $scope.soleFourHighC, atmosphere: $scope.soleFourAtmosphere },
+            { date: $scope.solesFiveDate, high: $scope.soleFiveHighC, low: $scope.soleFiveHighC, atmosphere: $scope.soleFiveAtmosphere },
+            { date: $scope.solesSixDate, high: $scope.soleSixHighC, low: $scope.soleSixHighC, atmosphere: $scope.soleSixAtmosphere },
+            { date: $scope.solesSevenDate, high: $scope.soleSevenHighC, low: $scope.soleSevenHighC, atmosphere: $scope.soleSevenAtmosphere },
         ];
 
         $scope.weeklyDataFahrenheit = [
-            {date: $scope.solesOneDate, high: $scope.soleOneHighF, low: $scope.soleOneHighF, atmosphere: $scope.soleOneAtmosphere},
-            {date: $scope.solesTwoDate, high: $scope.soleTwoHighF, low: $scope.soleTwoHighF, atmosphere: $scope.soleTwoAtmosphere},
-            {date: $scope.solesThreeDate, high: $scope.soleThreeHighF, low: $scope.soleThreeHighF, atmosphere: $scope.soleThreeAtmosphere},
-            {date: $scope.solesFourDate, high: $scope.soleFourHighF, low: $scope.soleFourHighF, atmosphere: $scope.soleFourAtmosphere},
-            {date: $scope.solesFiveDate, high: $scope.soleFiveHighF, low: $scope.soleFiveHighF, atmosphere: $scope.soleFiveAtmosphere},
-            {date: $scope.solesSixDate, high: $scope.soleSixHighF, low: $scope.soleSixHighF, atmosphere: $scope.soleSixAtmosphere},
-            {date: $scope.solesSevenDate, high: $scope.soleSevenHighF, low: $scope.soleSevenHighF, atmosphere: $scope.soleSevenAtmosphere},
+            { date: $scope.solesOneDate, high: $scope.soleOneHighF, low: $scope.soleOneHighF, atmosphere: $scope.soleOneAtmosphere },
+            { date: $scope.solesTwoDate, high: $scope.soleTwoHighF, low: $scope.soleTwoHighF, atmosphere: $scope.soleTwoAtmosphere },
+            { date: $scope.solesThreeDate, high: $scope.soleThreeHighF, low: $scope.soleThreeHighF, atmosphere: $scope.soleThreeAtmosphere },
+            { date: $scope.solesFourDate, high: $scope.soleFourHighF, low: $scope.soleFourHighF, atmosphere: $scope.soleFourAtmosphere },
+            { date: $scope.solesFiveDate, high: $scope.soleFiveHighF, low: $scope.soleFiveHighF, atmosphere: $scope.soleFiveAtmosphere },
+            { date: $scope.solesSixDate, high: $scope.soleSixHighF, low: $scope.soleSixHighF, atmosphere: $scope.soleSixAtmosphere },
+            { date: $scope.solesSevenDate, high: $scope.soleSevenHighF, low: $scope.soleSevenHighF, atmosphere: $scope.soleSevenAtmosphere },
         ];
-        
-       
-    }, function(err) {
+
+
+    }, function (err) {
         console.log(err)
     })
 
     $scope.fahrenheit = function () {
-    $scope.celsiusOrFahrenheit = 'fahrenheit';
-    $scope.saveAppState();
+        $scope.celsiusOrFahrenheit = 'fahrenheit';
+        $scope.saveAppState();
 
     };
 
@@ -167,9 +180,9 @@ app.controller('appController', function($scope, $http, $cookies){
     $scope.celsius = function () {
         $scope.celsiusOrFahrenheit = 'celsius';
         $scope.saveAppState();
- 
+
     };
- 
+
     $scope.weatherIconConversion = function () {
         if ($scope.atmosphere === 'Sunny') {
             $scope.weatherIcon = 'brightness_7';
@@ -178,7 +191,7 @@ app.controller('appController', function($scope, $http, $cookies){
             $scope.weatherIcon = $scope.atmosphere;
         }
     }; $scope.weatherIconConversion();
-    $scope.formatDate = function(inputDate) {
+    $scope.formatDate = function (inputDate) {
         // Split the input date string into year, month, and day
         var [year, monthStr, dayStr] = inputDate.split('-');
 
@@ -209,7 +222,7 @@ app.controller('appController', function($scope, $http, $cookies){
         return `${dayOfWeek} ${month} ${dayOfMonth}${getOrdinalSuffix(dayOfMonth)}`;
     };
 
-      
+
     //   $scope.solesTwoDate = $scope.formatDate($scope.solesTwoDate);
 
     //saving state with cookies
@@ -228,20 +241,20 @@ app.controller('appController', function($scope, $http, $cookies){
 
     $scope.$watchGroup([
         'celsiusOrFahrenheit'
-    ], function(newValues, oldValues) {
+    ], function (newValues, oldValues) {
         if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
             $scope.saveAppState();
         }
     });
 
- //call loadAppState whenever controller initializes
-$scope.loadAppState();
-console.log($scope.celsiusOrFahrenheit);
+    //call loadAppState whenever controller initializes
+    $scope.loadAppState();
+    console.log($scope.celsiusOrFahrenheit);
 
 
 });
 
-app.directive('previousDaysCelsius', function(){
+app.directive('previousDaysCelsius', function () {
     return {
         restrict: 'E',
         templateUrl: 'home-files/components/previousCelsius.html',
@@ -251,12 +264,12 @@ app.directive('previousDaysCelsius', function(){
             date: '@',
             atmosphere: '@'
         },
-    controller: 'appController'
+        controller: 'appController'
     };
 });
 
 
-app.directive('previousDaysFahrenheit', function(){
+app.directive('previousDaysFahrenheit', function () {
     return {
         restrict: 'E',
         templateUrl: 'home-files/components/previousFahrenheit.html',
@@ -266,16 +279,16 @@ app.directive('previousDaysFahrenheit', function(){
             date: '@',
             atmosphere: '@'
         },
-    controller: 'appController'
+        controller: 'appController'
     };
 });
 
 
 
-app.config(function($routeProvider) {
+app.config(function ($routeProvider) {
     $routeProvider
-    .when("/", {
-        templateUrl : "home.html",
-        controller: 'appController'
-    })
+        .when("/", {
+            templateUrl: "home.html",
+            controller: 'appController'
+        })
 })

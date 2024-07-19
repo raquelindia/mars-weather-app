@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./home-files/css/components-styles.css">
-    </head>
-    <body>
-        <div class="previous-container">
-            <div class="previous-header">
-                <div class="text-two"><span class="material-symbols-outlined sm:text-3xl sm:mt-1.5">
+
+<head>
+    <link rel="stylesheet" href="./home-files/css/components-styles.css">
+</head>
+
+<body>
+    <div class="previous-container">
+        <div class="previous-header">
+            <div class="text-two"><span class="material-symbols-outlined sm:text-3xl sm:mt-1.5">
                     calendar_month
-                    </span></div>
-                <div class="text-two"><h3 class="tracking-wider sm:text-3xl sm:mb-4 sm:mt-2">PREVIOUS SEVEN DAYS</h3></div>
-                </div>
-                <div class="hrs"><hr></div>
-        <div class="previous-content"  ng-repeat="data in weeklyDataFahrenheit">
-            <previous-days-fahrenheit  date="{{ data.date }}" high="{{ data.high }}" low="{{ data.low }}" atmosphere="{{ data.atmosphere }}" ></previous-days-fahrenheit>
+                </span></div>
+            <div class="text-two">
+                <h3 class="tracking-wider sm:text-3xl sm:mb-4 sm:mt-2">PREVIOUS SEVEN DAYS</h3>
+            </div>
         </div>
+        <div class="hrs">
+            <hr>
         </div>
-    </body>
+        <div class="previous-content" ng-repeat="data in weeklyDataFahrenheit">
+            <previous-days-fahrenheit date="{{ data.date }}" high="{{ data.high }}" low="{{ data.low }}"
+                atmosphere="{{ data.atmosphere }}"></previous-days-fahrenheit>
+        </div>
+    </div>
+</body>
+
 </html>

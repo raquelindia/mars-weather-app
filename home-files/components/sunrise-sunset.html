@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-    </head>
-    <body>
-        <div class="sunrise-sunset-container">
-            <div class="sunrise-sunset-header">
-                <div class="text-two"><span class="material-symbols-outlined sm:text-3xl sm:mt-1.5">
+<head>
+
+</head>
+
+<body>
+    <div class="sunrise-sunset-container">
+        <div class="sunrise-sunset-header">
+            <div class="text-two"><span class="material-symbols-outlined sm:text-3xl sm:mt-1.5">
                     wb_twilight
-                    </span></div>
-                <div class="text-two"><h1 class="tracking-wider sm:text-3xl sm:mb-4 sm:mt-2">SUNRISE</h1></div>
-            </div>
-
-            <div>
-                <div class="text-one mb-4"><span class="sunrise">{{ soleOneSunrise }}</span></div>
-                <!-- <div><img class="sunrise-img" alt="sunrise" src="./home-files/images/sunrise.png"></div> -->
-                <div style=" width: 96%; height: 0.4px; background-color: rgb(255, 211, 255); margin-left: 2%; margin-right: 2%;"></div>
-                <div class="text-one mt-8"><span class="sunset tracking-wider">{{"SUNSET: " + " " + soleOneSunset}}</span></div>
+                </span></div>
+            <div class="text-two">
+                <h1 class="tracking-wider sm:text-3xl sm:mb-4 sm:mt-2">SUNRISE</h1>
             </div>
         </div>
-    </body>
+
+        <div>
+            <div class="text-one mb-4"><span class="sunrise">{{ soleOneSunrise }}</span></div>
+            <!-- <div><img class="sunrise-img" alt="sunrise" src="./home-files/images/sunrise.png"></div> -->
+            <div
+                style=" width: 96%; height: 0.4px; background-color: rgb(255, 211, 255); margin-left: 2%; margin-right: 2%;">
+            </div>
+            <div class="text-one mt-8"><span class="sunset tracking-wider">{{"SUNSET: " + " " + soleOneSunset}}</span>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

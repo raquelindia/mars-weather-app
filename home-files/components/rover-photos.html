@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./home-files/css/components-styles.css">
-    </head>
-    <body>
-        <div class="rover-photos-container">
-            <div class="rover-photos-header">
-                <div class="text-two"><span class="material-symbols-outlined sm:text-3xl sm:mt-1.5">
+
+<head>
+    <link rel="stylesheet" href="./home-files/css/components-styles.css">
+</head>
+
+<body>
+    <div class="rover-photos-container">
+        <div class="rover-photos-header">
+            <div class="text-two"><span class="material-symbols-outlined sm:text-3xl sm:mt-1.5">
                     robot_2
-                    </span></div>
-                <div><h1 class="text-two tracking-wider sm:text-3xl sm:mb-4 sm:mt-2">MARS ROVER PHOTOS</h1></div>
-                </div>
-                <div class="rover-photo-carousel-container">
-                   <div class="rover-image-div"><img  class="rover-image" alt="Rover Photo" src="{{photosData[roverPhotosIndex].img_src}}"></div>
-                   <div class="rover-carousel-buttons-container">
-                    <div class="rover-button-div-back"><span class="rover-button-span"><button class="text-one" ng-click="toggleRoverPhotosBack()"><span style="font-size: 180%; font-weight: 400;" class="material-symbols-outlined">arrow_back_ios</span></button></span></div>
-                    <div class="rover-button-div-forward"><span class="rover-button-span"><button class="text-one" ng-click="toggleRoverPhotosForward()"><span style="font-size: 180%; font-weight: 400;" class="material-symbols-outlined">arrow_forward_ios</span></button></span></div>
-                </div>
-                </div>
-             
+                </span></div>
+            <div>
+                <h1 class="text-two tracking-wider sm:text-3xl sm:mb-4 sm:mt-2">MARS ROVER PHOTOS</h1>
             </div>
-       
         </div>
-    </body>
+        <div class="rover-photo-carousel-container">
+            <div class="rover-image-div"><img class="rover-image" alt="Rover Photo"
+                    src="{{photosData[roverPhotosIndex].img_src}}"></div>
+            <div class="rover-carousel-buttons-container">
+                <div class="rover-button-div-back"><span class="rover-button-span"><button class="text-one"
+                            ng-click="toggleRoverPhotosBack()"><span style="font-size: 180%; font-weight: 400;"
+                                class="material-symbols-outlined">arrow_back_ios</span></button></span></div>
+                <div class="rover-button-div-forward"><span class="rover-button-span"><button class="text-one"
+                            ng-click="toggleRoverPhotosForward()"><span style="font-size: 180%; font-weight: 400;"
+                                class="material-symbols-outlined">arrow_forward_ios</span></button></span></div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+</body>
+
 </html>

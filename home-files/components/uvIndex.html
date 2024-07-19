@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./home-files/css/components-styles.css">
-    </head>
-    <body>
-        <div class="uv-index-container">
-            <div class="uv-index-header">
-                <div class="text-two"><span class="material-symbols-outlined sm:text-3xl sm:mt-1.5">
-                    sunny
-                    </span></div>
-                <div class="text-two"><h1 class="tracking-wider sm:text-3xl sm:mb-4 sm:mt-2">UV INDEX</h1></div>
-                </div>
-                <br>
-                <br>
-                <div class="uv-content">
-                <div class="text-one mb-6 -mt-6"><span class="tracking-wider sm:text-6xl text-5xl">{{ soleOneUvIndex  }}</span></div>
-                <div class="uv-bar row-items" style="margin-top: 2.5%; border-radius: 4px; height: 8px; border: 0.2px solid white; background-image: linear-gradient(to right, blue, rgb(0, 255, 0), yellow, orange, red, violet)"></div>
-                </div>
-            </div>
 
+<head>
+    <link rel="stylesheet" href="./home-files/css/components-styles.css">
+</head>
+
+<body>
+    <div class="uv-index-container">
+        <div class="uv-index-header">
+            <div class="text-two"><span class="material-symbols-outlined sm:text-3xl sm:mt-1.5">
+                    sunny
+                </span></div>
+            <div class="text-two">
+                <h1 class="tracking-wider sm:text-3xl sm:mb-4 sm:mt-2">UV INDEX</h1>
+            </div>
         </div>
-    </body>
+        <br>
+        <br>
+        <div class="uv-content">
+            <div class="text-one mb-6 -mt-6"><span class="tracking-wider sm:text-6xl text-5xl">{{ soleOneUvIndex
+                    }}</span></div>
+            <div class="uv-bar row-items"
+                style="margin-top: 2.5%; border-radius: 4px; height: 8px; border: 0.2px solid white; background-image: linear-gradient(to right, blue, rgb(0, 255, 0), yellow, orange, red, violet)">
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+
 </html>
