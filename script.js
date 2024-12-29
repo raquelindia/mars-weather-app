@@ -90,6 +90,11 @@ app.controller('appController', function ($scope, $http, $cookies) {
         $scope.soleTwoLowF = parseFloat($scope.soleTwoLowC) * 9 / 5 + 32;
         $scope.soleTwoHighF = parseFloat($scope.soleTwoHighC) * 9 / 5 + 32;
 
+
+        $scope.soleTwoLowF = Math.floor(parseFloat($scope.soleTwoLowC) * 9 / 5 + 32);
+        $scope.soleTwoHighF = Math.floor(parseFloat($scope.soleTwoHighC) * 9 / 5 + 32);
+
+
         //day 3
         $scope.solesThreeDate = $scope.soles[2].terrestrial_date;
         $scope.soleThreeAtmosphere = $scope.soles[2].atmo_opacity;
