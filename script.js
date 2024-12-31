@@ -25,6 +25,7 @@ app.controller('appController', function ($scope, $http, $cookies) {
 
     $http.get(marsRoverPhotosUrl).then(function (response) {
         $scope.marsRoverPhotosData = response.data;
+        console.log($scope.marsRoverPhotosData);
         $scope.photosData = $scope.marsRoverPhotosData.photos;
         $scope.roverPhotosLoop = "";
         $scope.roverPhotosIndex = 0;
@@ -61,7 +62,7 @@ app.controller('appController', function ($scope, $http, $cookies) {
         console.log(err)
     });
     $http.get(marsWeatherUrl).then(function (response) {
-        $scope.weatherData = response.data
+        $scope.weatherData = response.data;
         $scope.soles = $scope.weatherData.soles;
         $scope.todaysWeather = $scope.soles[0];
 
